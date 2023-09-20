@@ -21,6 +21,8 @@ class StoryCollection extends JsonResource
             'author' => $this->author,
             'story' => $this->story,
             'date' => (new Carbon($this->created_at))->format('d F Y H:i'),
+            'likes' => $this->likes->count(),
+            'visitorLikes' => $this->visitorLikesIt(),
         ];
     }
 }

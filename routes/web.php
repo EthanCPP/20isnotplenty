@@ -22,6 +22,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => 'story', 'as' => 'story.'], function() {
    Route::get('/new', [StoryController::class, 'show'])->name('new');
    Route::post('/new', [StoryController::class, 'create'])->name('new');
+
+    Route::post('/{story:id}/like', [StoryController::class, 'addLike'])->name('like');
+    Route::post('/{story:id}/unlike', [StoryController::class, 'removeLike'])->name('unlike');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
@@ -29,6 +32,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function() {
     Route::post('/login', [AdminController::class, 'doLogin'])->name('login');
 
     Route::group(['middleware' => 'auth'], function() {
+        Route::get('/', function() {
+            return redirect()->route('admin.dashboard');
+        });
+
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
         Route::post('/story/{story:id}/approve', [AdminController::class, 'approve'])->name('approve');
