@@ -16,7 +16,7 @@ defineProps(['stories']);
             v-for="story in stories.data"
             class="py-3"
         >
-            <p v-html="story.story"></p>
+            <div v-html="story.story"></div>
             <small>- {{ story.author }} on {{ story.date }}</small>
 
             <div class="mt-3 d-flex gap-3">

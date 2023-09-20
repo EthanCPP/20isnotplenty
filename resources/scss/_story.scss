@@ -1,0 +1,26 @@
+.story {
+    border-bottom: 1px solid #777;
+    padding: 40px 0;
+
+    &__content {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        word-break: break-all;
+
+        @include media-breakpoint-up(lg) {
+            font-size: 21px;
+            line-height: 36px;
+        }
+    }
+
+    &__like {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    &__like-button {
+        padding-left: 0;
+    }
+}

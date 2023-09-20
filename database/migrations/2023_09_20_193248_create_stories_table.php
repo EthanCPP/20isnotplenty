@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('approved')->default(false);
             $table->longText('story');
-            $table->string('author')->default('Anonymous');
+            $table->string('author')->nullable();
             $table->boolean('deleted')->default(false);
             $table->timestamps();
         });

@@ -22,8 +22,8 @@ class StoryController extends Controller
         ]);
 
         $story = new Story;
-        $story->author = $validated['name'];
-        $story->story = strip_tags(htmlspecialchars($validated['story']));
+        $story->author = $validated['name'] ?: 'Anonymous';
+        $story->story = nl2br(strip_tags(htmlspecialchars($validated['story'])));
         $story->save();
 
         return redirect()->route('home')->with('success', 'Thank you! Your story has been added. It will appear when we have approved it.');

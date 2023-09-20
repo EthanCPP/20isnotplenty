@@ -11,7 +11,7 @@ const form = useForm({
     <div class="container">
         <Link :href="$route('home')" class="btn btn-primary">Back to home</Link>
 
-        <h1>Add your story</h1>
+        <h1 class="mt-4 mb-5">Add your story</h1>
 
         <form @submit.prevent="form.post($route('story.new'))">
             <div class="form-group mb-4">
@@ -21,6 +21,7 @@ const form = useForm({
                     name="name"
                     id="name"
                     v-model="form.name"
+                    style="max-width: 200px;"
                     class="form-control" />
                 <p><small>Leave blank to remain anonymous</small></p>
 

@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render('Home', [
-            'stories' => StoryCollection::collection(Story::where('approved', 1)->get()),
+            'stories' => StoryCollection::collection(Story::where('approved', 1)->orderByDesc('created_at')->get()),
         ]);
     }
 }
